@@ -228,7 +228,7 @@ const CustomerDashboard = () => {
               </div>
               <div>
                 <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1.5">Email</label>
-                <input className="input-field" defaultValue={user?.email} disabled className="input-field bg-gray-50 text-gray-500" />
+                <input className="input-field bg-gray-50 text-gray-500" defaultValue={user?.email} disabled />
               </div>
               <div>
                 <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1.5">Phone</label>
