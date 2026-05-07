@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@600;700;800;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-gray-50 text-gray-900 antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  h1, h2, h3, h4, h5 {
+    font-family: 'Montserrat', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-trust-blue text-white font-semibold px-5 py-2.5 rounded-xl
+           hover:bg-trust-blue-700 active:scale-95 transition-all duration-150
+           disabled:opacity-50 disabled:cursor-not-allowed inline-flex items-center gap-2;
+  }
+  .btn-secondary {
+    @apply bg-white border border-gray-200 text-gray-700 font-medium px-5 py-2.5 rounded-xl
+           hover:border-trust-blue hover:text-trust-blue hover:bg-trust-blue-50
+           active:scale-95 transition-all duration-150 inline-flex items-center gap-2;
+  }
+  .btn-orange {
+    @apply bg-construction-orange text-white font-semibold px-5 py-2.5 rounded-xl
+           hover:bg-construction-orange-700 active:scale-95 transition-all duration-150 inline-flex items-center gap-2;
+  }
+  .card {
+    @apply bg-white rounded-2xl border border-gray-100 shadow-card;
+  }
+  .card-hover {
+    @apply card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-200 cursor-pointer;
+  }
+  .input-field {
+    @apply w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm
+           focus:outline-none focus:border-trust-blue-500 focus:ring-2 focus:ring-trust-blue-100
+           transition-colors duration-150 bg-white;
+  }
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  .badge-blue { @apply bg-trust-blue-50 text-trust-blue-800; }
+  .badge-orange { @apply bg-orange-50 text-orange-700; }
+  .badge-green { @apply bg-green-50 text-green-700; }
+  .badge-red { @apply bg-red-50 text-red-700; }
+  .badge-yellow { @apply bg-yellow-50 text-yellow-700; }
+  .badge-gray { @apply bg-gray-100 text-gray-600; }
+  .skeleton {
+    @apply bg-gray-200 rounded animate-pulse;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+  .section-container {
+    @apply max-w-6xl mx-auto px-4 sm:px-6;
+  }
+  .page-section {
+    @apply py-16;
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #9ca3af; }
+
+/* Star rating */
+.stars-gold { color: #f59e0b; }
+
+/* Availability pulse */
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(2); opacity: 0; }
+}
+.avail-pulse::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #10b981;
+  animation: pulse-ring 1.5s ease-out infinite;
+}
